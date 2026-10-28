@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#a8e2f8">
+    <title>Feliz cumpleaños, mi gatito 🩵</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- Música global: acompaña todas las escenas -->
+    <audio id="backgroundMusic" loop preload="auto">
+        <source src="audio/cancion.mp3" type="audio/mpeg">
+        Tu navegador no puede reproducir este audio.
+    </audio>
+
+    <button id="musicToggle" class="global-music-button"
+        type="button" aria-label="Reproducir música" aria-pressed="false">
+        🎵 Reproducir música
+    </button>
+
+    <!-- 1. INTRODUCCIÓN -->
+    <section id="intro" class="scene intro show">
+        <div class="bubbles" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </div>
+        <div class="scene-content">
+            <p class="eyebrow">Un regalo hecho con amor</p>
+            <div class="intro-icon" aria-hidden="true">🐚</div>
+            <h1>Un pequeño océano para ti</h1>
+            <p class="subtitle">Feliz cumpleaños, mi gatito 🩵</p>
+            <p class="description">
+                Preparé un lugarcito especial lleno de recuerdos,
+                cariño y pequeñas sorpresas para ti.
+            </p>
+            <button id="startButton" class="main-button" type="button">
+                Sumergirme 🌊
+            </button>
+        </div>
+    </section>
+
+    <!-- 2. PASTEL INTERACTIVO -->
+    <section id="cakeSection" class="scene cake-section">
+        <div class="bubbles" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span></span><span></span>
+        </div>
+        <div class="scene-content cake-content">
+            <p class="eyebrow">Una pequeña sorpresa para ti</p>
+            <h2>¡Feliz cumpleaños, mi gatito!</h2>
+            <p id="cakePrompt" class="cake-text">
+                Antes de explorar este océano, pide un deseo y sopla tu velita. 🕯️
+            </p>
+            <img id="cakeImage" class="cake-image"
+                src="images/cakelight.png"
+                alt="Pastel de cumpleaños con la vela encendida">
+            <p id="cakeMessage" class="cake-message" hidden>
+                ¡Feliz cumpleaños, Glahdsin! 🩵<br><br>
+                Ojalá pudiera estar ahí para cantarte y abrazarte.
+                Preparé este pequeño océano con mucho amor para ti.
+                Espero que este nuevo año de tu vida esté lleno de
+                momentos bonitos, sueños cumplidos y muchas razones
+                para sonreír.<br><br>
+                Te amo, mi gatito. 🥹🩵
+            </p>
+            <button id="blowCandleButton" class="main-button" type="button">
+                Soplar la velita 🌬️
+            </button>
+            <button id="cakeContinueButton" class="main-button"
+                type="button" hidden>
+                Ahora sí, ¡exploremos el océano! 🌊
+            </button>
+        </div>
+    </section>
+
+    <!-- 3. OCÉANO -->
+    <section id="underwater" class="scene underwater">
+        <div class="ocean-light" aria-hidden="true"></div>
+        <div class="bubbles" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </div>
+        <div class="scene-content">
+            <div class="scene-icon" aria-hidden="true">🐠</div>
+            <p class="eyebrow">Sigue las burbujitas</p>
+            <h2>Bienvenido al fondo del mar</h2>
+            <p class="subtitle">Feliz cumpleaños, Glahd 🩵</p>
+            <p class="description">
+                Aquí guardé algunos pedacitos de nuestra historia.
+                ¿Vamos a descubrirlos?
+            </p>
+            <button id="continueButton" class="main-button" type="button">
+                Seguir explorando
+            </button>
+        </div>
+    </section>
+
+    <!-- 4. RECUERDOS -->
+    <section id="reef" class="scene reef">
+        <div class="scene-content reef-content">
+            <p class="eyebrow">Pequeños tesoros de nuestra historia</p>
+            <h2>Nuestro arrecife de recuerdos 🪸</h2>
+            <p class="description">
+                Cada recuerdo es una pequeña parte de lo bonito
+                que hemos construido juntos.
+            </p>
+            <div class="memory-grid">
+                <button class="memory-card" type="button" data-memory="memory1">
+                    <span class="memory-emoji">⛏️</span>
+                    <span class="memory-card-title">Nuestro comienzo</span>
+                    <span class="memory-card-description">Nuestra primera foto en Minecraft</span>
+                </button>
+                <button class="memory-card" type="button" data-memory="memory2">
+                    <span class="memory-emoji">🩵</span>
+                    <span class="memory-card-title">Dos palabras</span>
+                    <span class="memory-card-description">Nuestro primer «Te amo» en Sky</span>
+                </button>
+                <button class="memory-card" type="button" data-memory="memory3">
+                    <span class="memory-emoji">🪽</span>
+                    <span class="memory-card-title">Nuestras aventuras</span>
+                    <span class="memory-card-description">Nuestros Skykids en un video</span>
+                </button>
+                <button class="memory-card" type="button" data-memory="memory4">
+                    <span class="memory-emoji">🌊</span>
+                    <span class="memory-card-title">Más allá de la pantalla</span>
+                    <span class="memory-card-description">Un recuerdo juntos en persona</span>
+                </button>
+            </div>
+            <button id="reefContinue" class="main-button" type="button">
+                Hay algo más para ti 💌
+            </button>
+        </div>
+    </section>
+
+    <!-- VENTANA DE RECUERDOS -->
+    <div id="memoryOverlay" class="memory-overlay"
+        aria-hidden="true" role="dialog" aria-modal="true"
+        aria-labelledby="memoryTitle">
+        <div class="memory-modal">
+            <button id="closeMemory" class="close-button" type="button"
+                aria-label="Cerrar recuerdo">×</button>
+            <div id="memoryIcon" class="memory-modal-icon">🩵</div>
+            <p id="memoryLabel" class="eyebrow">Nuestro recuerdo</p>
+            <h3 id="memoryTitle">Un momento especial</h3>
+            <div id="memoryMedia" class="memory-media"></div>
+            <p id="memoryText" class="memory-text"></p>
+            <p id="memoryDate" class="memory-date"></p>
+        </div>
+    </div>
+
+    <!-- 5. CARTA: SIN REPRODUCTOR PROPIO -->
+    <section id="letterSection" class="scene letter-section">
+        <div class="letter-decoration" aria-hidden="true">♡</div>
+        <article class="letter-card">
+            <p class="eyebrow">Unas palabras para ti</p>
+            <h2>Para mi gatito, Iker ♡</h2>
+            <div class="letter-body">
+                <p>Feliz cumpleaños amocito. ♡</p>
+                <p>Aaaa, no sé ni por dónde empezar JSKDK, hay tantas cosas que quisiera decirte y a veces siento que no sé cómo expresarlas bien, pero quiero intentarlo porque hoy es un día muy especial para ti y quiero que tengas aunque sea un pedacito de todo el amor que te tengo en estas palabras 🥺🩵</p>
+                <p>¿Sabes? A veces me pongo a pensar en cómo nos conocimos y en todo lo que ha pasado desde entonces y se me hace muy bonito pensar que empezamos siendo dos personas que coincidieron en un server más... y que, sin darnos cuenta... Terminamos convirtiéndonos en algo mucho más bonito... Quién diría que aquel "esclavo" terminaría siendo mi novio JSJSJSK, que pasaríamos de jugar Minecraft a tener nuestros propios recuerdos, nuestros apodos y tantas cositas que ahora significan mucho para mí, desde nuestro contrato, hasta aquel primer "te amo" en Sky, son cosas que guardo con muchísimo cariño y que me hacen sonreír cada vez que las recuerdo</p>
+                <p>Y ni hablar de nuestro primer encuentro en persona AAAA!!!! Sinceramente, fue algo demasiado bonito para mí, después de hablar por una pantalla, por fin pude tenerte cerquita, verte, escucharte, sentirte y compartir tiempo contigo sin tener que quedarme mirando una pantalla, me sentí muy cómoda contigo y disfruté muchísimo esos momentos. Me hubiera gustado que el tiempo pasara más despacito para poder estar contigo un poquito más. 🥲</p>
+                <p>Espero de verdad que podamos volver a vernos muchas veces más, que nos queden muchísimas fotitos por tomar, lugares por conocer y recuerdos por crear... Quiero que algún día podamos mirar todas esas fotos y recordar lo bonito que ha sido ir compartiendo nuestras vidas, incluso con la distancia de por medio. ♡</p>
+                <p>Quiero que sepas que eres alguien muy especial para mí, mi gatito, me gusta compartir mis días contigo, escuchar tu voz, jugar juntos, hacer nuestras tonterías y hasta cuando me cuentas cosas que quizá para ti son pequeñitas, pero que a mí me gusta conocer porque vienen de ti... Me gusta conocerte cada vez más y descubrir nuevas cositas de ti, y sí, también me gusta molestarte JSJDJDJ, no te vas a librar de eso.</p>
+                <p>Sé que todavía nos quedan muchas cosas por aprender y vivir, tanto individualmente como juntos, pero me hace ilusión pensar en todo lo que todavía podemos compartir... Quiero seguir conociéndote, apoyarte en tus metas, celebrar tus logros y acompañarte cuando tengas días difíciles, quiero que podamos contarnos nuestras cosas, hablar de lo que sentimos y aprender a entendernos cada vez mejor.</p>
+                <p>No siempre van a salir las cosas perfectas y seguramente habrá días en los que nos cueste un poquito más, pero me gustaría que siempre tuviéramos las ganas de intentarlo, de escucharnos y de cuidar esto tan bonito que tenemos, porque yo sí quiero que lo nuestro siga creciendo y que no nos quedemos solamente con las ganas de hacer muchas cosas juntos, sino que poquito a poquito podamos ir cumpliéndolas...</p>
+                <p>Y bueno... dejando de hablar de nosotros un ratito, hoy quiero desearte muchísimas cosas bonitas, quiero que seas feliz, que puedas cumplir tus metas, que tengas muchas razones para sonreír y que nunca dejes de hacer las cosas que te gustan, espero que este nuevo año de vida te traiga experiencias bonitas, nuevas oportunidades y muchísimas cosas de las que puedas sentirte orgulloso :3</p>
+                <p>Espero que nunca dudes de lo mucho que vales y que, incluso cuando tengas días en los que las cosas no salgan como quieres, recuerdes que no tienes que poder con todo tú solo... Quiero verte crecer, cumplir tus sueños y convertirte en la persona que quieres ser, y si me lo permites, me gustaría acompañarte en lo que resta de este camino llamado vida ♡</p>
+                <p>Estoy muy feliz de haberte conocido, Iker, de verdad, y aunque a veces no sepa cómo decirte todo lo que siento o me quede sin palabras cuando intento explicártelo, quiero que sepas que te amo muchísimo y que valoro todos esos momentos bonitos que hemos compartido...</p>
+                <p>Gracias por ser parte de mi vida, por los recuerdos que tenemos y por todos los que todavía nos faltan.</p>
+                <p>Gracias por ser mi gatito, por dejarme llamarte así y por darme tantas cositas bonitas que recordar, espero que nosotros también podamos seguir aprendiendo a querernos de la manera más bonita posible ♡♡♡</p>
+                <p>A veces me da mucha curiosidad pensar en cómo estaremos dentro de unos años, qué cosas habremos vivido y cuántos recuerdos más tendremos juntos, no sé qué nos espera exactamente, pero sí sé que me hace mucha ilusión seguir compartiendo esta historia contigo y descubrirlo poco a poco...</p>
+                <p>Espero que tengas un cumpleaños muy bonito, mi amor, que disfrutes muchísimo tu día, que te consientan y que sonrías mucho... Ojalá pudiera estar ahí contigo para darte un abrazo, verte feliz y decirte todo esto en persona, pero por ahora te mando muchísimos abrazos y besitos a la distancia :')</p>
+                <p>Feliz cumpleaños, mi gatito Te amo muchísimo y me hace muy feliz que existas, que nuestros caminos se hayan cruzado y que ahora pueda llamarte mi amor...♡</p>
+                <p>Espero que este sea uno de muchos cumpleaños en los que pueda felicitarte y recordarte lo especial que eres para mí...</p>
+                <p class="letter-signature">Feliz cumpleaños, Iker ♡</p>
+            </div>
+            <button id="letterContinue" class="main-button" type="button" hidden>
+                Un último recuerdito ✨
+            </button>
+        </article>
+    </section>
+
+    <!-- 6. ESCENA FINAL CON UNA FOTO DIFERENTE -->
+    <section id="finalSection" class="scene final-section">
+        <div class="bubbles" aria-hidden="true">
+            <span></span><span></span><span></span>
+            <span></span><span></span>
+        </div>
+        <div class="scene-content final-content">
+            <p class="eyebrow">Después de tantos kilómetros...</p>
+            <div class="final-heart" aria-hidden="true">♡</div>
+            <h2>Por fin, nosotros.</h2>
+            <p class="subtitle">~ 💙 ~</p>
+
+            <!-- Esta es una imagen DISTINTA a la del recuerdo memory4 -->
+            <div class="couple-photo">
+                <img id="finalPhoto" src="images/foto-final.jpg"
+                    alt="Una foto especial de Annie y Glahd juntos">
+                <p id="photoError" class="photo-error" hidden>
+                    No se pudo cargar la foto final. Revisa que exista
+                    images/foto-final.jpg y que el nombre coincida.
+                </p>
+            </div>
+
+            <p class="description">
+                Después de tantos momentos detrás de una pantalla,
+                tantas llamadas, juegos y recuerdos... ahora podemos
+                hacer recuerdos que no caben en una pantalla. 🩵
+            </p>
+            <p>Feliz cumpleaños,</p>
+            <p class="final-signature">mi gatito.</p>
+            <p>Te amo, Iker. 🩵</p>
+            <p class="final-note">— Annie</p>
+        </div>
+    </section>
+
+</body>
+</html>
